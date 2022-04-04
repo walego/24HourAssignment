@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Models
 {
-    internal class PostDetail
+    public class PostDetail
     {
+        public int UserId { get; set; }
+        public string Title { get; set; }
+        public string Text { get; set; }
     }
 }

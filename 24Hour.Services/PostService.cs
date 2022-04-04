@@ -48,5 +48,21 @@ namespace _24Hour.Services
 
             }
         }
+
+        public PostDetail GetNoteById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Posts.Single(e => e.UserId == id && e.AuthorId == _userId);
+                return
+                    new PostDetail
+                    {
+                        UserId = entity.UserId,
+                        Title = entity.Title,
+                        Text = entity.Text
+                    };
+
+            }
+        }
     }
 }

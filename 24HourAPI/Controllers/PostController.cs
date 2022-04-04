@@ -41,5 +41,12 @@ namespace _24HourAPI.Controllers
             var posts = service.GetPosts();
             return Ok(posts);
         }
+        //Get By AuthorId
+        public IHttpActionResult GetById()
+        {
+            PostService service = CreatePostService();
+            var post = service.GetPostById(id);
+            return (post);
+        }
     }
 }
