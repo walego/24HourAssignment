@@ -15,28 +15,43 @@ namespace _24HourAPI.Controllers
 
         public IHttpActionResult Get()
         {
-            ReplyService replyService = CreateReply();
+            ReplyService replyService = CreateReplyService();
             var reply = replyService.GetReply();
             return Ok(reply);
         }
+
+        private ReplyService CreateReplyService()
+        {
+            throw new NotImplementedException();
+        }
+
         public IHttpActionResult Get(int id)
         {
-            ReplyService replyService= CreateReply();
-            var reply = replyService.GetReplyById(id);
+            ReplyService replyService = CreateReplyService();
+
+            
+            var reply = replyService.GetReply();
             return Ok(reply);
         }
+       
         public IHttpActionResult Post(ReplyCreate reply)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreateReply();
+
+            var service = CreateReplyService();
+
+            
+
 
             if (!service.CreateReply(reply))
                 return InternalServerError();
 
             return Ok();
         }
+
+
 
         private ReplyService CreateReply()
         {
