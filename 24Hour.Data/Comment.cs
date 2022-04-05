@@ -20,7 +20,7 @@ namespace _24Hour.Data
         [Required]
         public Guid AuthorId { get; set; }
         public virtual List<Reply> Replys { get; set; } = new List<Reply>();
-        [ForeignKey(nameof(Post))]
-        public virtual Post Post { get; set; }
+        [ForeignKey(nameof(PostId))]
+        public virtual Post PostId { get; set; }
     }
 }
