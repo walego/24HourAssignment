@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Data
 {
-    internal class Post
+    public class Post
     {
         [Key]
         public int UserId { get; set; }
