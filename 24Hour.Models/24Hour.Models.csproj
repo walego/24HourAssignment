@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="Likes\LikeCreate.cs" />
     <Compile Include="Likes\LikeListItem.cs" />
+    <Compile Include="PostCreate.cs" />
+    <Compile Include="PostDetail.cs" />
+    <Compile Include="PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
