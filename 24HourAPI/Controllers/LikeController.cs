@@ -1,4 +1,5 @@
-﻿using _24Hour.Services;
+﻿using _24Hour.Models.Likes;
+using _24Hour.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,18 @@ namespace _24HourAPI.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var noteService = new LikeService(userId);
             return noteService;
+        }
+        public IHttpActionResult Post(LikeCreate like)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateLikeService();
+
+            if (!service.CreateLike(like))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }
