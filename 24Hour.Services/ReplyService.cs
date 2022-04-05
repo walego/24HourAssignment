@@ -1,11 +1,8 @@
-﻿using _24Hour.Data;
+﻿
 using _24Hour.Models;
-using _24HourAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _24Hour.Services
 {
