@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Data
 {
-    public class Comment
+    internal class Comment
     {
         [Key]
         [Range(1, 100, ErrorMessage = "Please Choose A Number Between 1 & 100.")]
