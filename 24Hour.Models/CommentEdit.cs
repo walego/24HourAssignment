@@ -12,4 +12,8 @@ namespace _24Hour.Models
         public string Text { get; set; }
         public string Content { get; set; }
     }
+
 }
+
+}
+

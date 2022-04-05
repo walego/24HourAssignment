@@ -16,7 +16,6 @@ namespace _24Hour.Services
         {
             _userId = userId;
         }
-
         public bool CreatePost(PostCreate model)
         {
             var entity = new Post()
@@ -32,7 +31,6 @@ namespace _24Hour.Services
             }
 
         }
-
         public IEnumerable<PostListItem> GetPosts()
         {
             using (var ctx = new ApplicationDbContext())
@@ -48,7 +46,6 @@ namespace _24Hour.Services
 
             }
         }
-
         public PostDetail GetPostById(int id)
         {
             using (var ctx = new ApplicationDbContext())
