@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Data
 {
-    public class Comment
+    internal class Comment
     {
     }
 }
