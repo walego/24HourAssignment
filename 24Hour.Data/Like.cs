@@ -14,6 +14,7 @@ namespace _24Hour.Data
         public int LikeId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
+        [Required]
         public int PostId { get; set; }
         [ForeignKey(nameof(PostId))]
         public virtual Post LikedPost { get; set; }
