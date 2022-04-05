@@ -5,18 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24Hour.Data
+namespace _24Hour.Models
 {
-    internal class Post
+    public class CommentCreate
     {
-        [Key]
-        public int UserId { get; set; }
         [Required]
-        public string Title { get; set; }
-        [Required]
+        [MinLength(2, ErrorMessage = "Please Enter At Least Two Characters.")]
+        [MaxLength(100, ErrorMessage ="Too Many Characters!")]
         public string Text { get; set; }
-        //public virtual List<Comment> Comments { get; set; }
-        //public virtual List<Like> Likes { get; set; }
+        [MaxLength(8000)]
         public Guid AuthorId { get; set; }
     }
 }
