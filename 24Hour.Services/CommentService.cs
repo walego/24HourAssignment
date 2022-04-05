@@ -22,7 +22,9 @@ namespace _24Hour.Services
             {
                 AuthorId = _userId,
                 Text = model.Text,
-                
+
+
+
             };
             using (var ctx = new ApplicationDbContext())
             {

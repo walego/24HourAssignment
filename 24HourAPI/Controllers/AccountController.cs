@@ -29,14 +29,12 @@ namespace _24HourAPI.Controllers
         public AccountController()
         {
         }
-
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
-
         public ApplicationUserManager UserManager
         {
             get
@@ -48,9 +46,7 @@ namespace _24HourAPI.Controllers
                 _userManager = value;
             }
         }
-
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
-
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
@@ -65,7 +61,6 @@ namespace _24HourAPI.Controllers
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
         }
-
         // POST api/Account/Logout
         [Route("Logout")]
         public IHttpActionResult Logout()
@@ -73,7 +68,6 @@ namespace _24HourAPI.Controllers
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
             return Ok();
         }
-
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
@@ -95,7 +89,6 @@ namespace _24HourAPI.Controllers
                     ProviderKey = linkedAccount.ProviderKey
                 });
             }
-
             if (user.PasswordHash != null)
             {
                 logins.Add(new UserLoginInfoViewModel
@@ -104,7 +97,6 @@ namespace _24HourAPI.Controllers
                     ProviderKey = user.UserName,
                 });
             }
-
             return new ManageInfoViewModel
             {
                 LocalLoginProvider = LocalLoginProvider,
@@ -113,7 +105,6 @@ namespace _24HourAPI.Controllers
                 ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
             };
         }
-
         // POST api/Account/ChangePassword
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
@@ -133,7 +124,6 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
         // POST api/Account/SetPassword
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
@@ -152,7 +142,6 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
         // POST api/Account/AddExternalLogin
         [Route("AddExternalLogin")]
         public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
@@ -190,7 +179,6 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
         // POST api/Account/RemoveLogin
         [Route("RemoveLogin")]
         public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
@@ -219,7 +207,6 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
         // GET api/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
@@ -236,7 +223,6 @@ namespace _24HourAPI.Controllers
             {
                 return new ChallengeResult(provider, this);
             }
-
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
             if (externalLogin == null)
@@ -276,7 +262,6 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]
@@ -317,7 +302,6 @@ namespace _24HourAPI.Controllers
 
             return logins;
         }
-
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -339,7 +323,6 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -372,7 +355,6 @@ namespace _24HourAPI.Controllers
             }
             return Ok();
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)

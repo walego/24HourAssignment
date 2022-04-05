@@ -64,6 +64,5 @@ namespace _24HourAPI.Controllers
 
             return Ok();
         }
-
     }
 }

@@ -12,4 +12,6 @@ namespace _24Hour.Models.Likes
         [Required]
         public int PostId { get; set; }
     }
+
+    //boom
 }

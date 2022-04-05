@@ -1,11 +1,13 @@
-﻿using _24Hour.Data;
-using _24Hour.Models;
-using _24HourAPI.Models;
+﻿using _24Hour.Models;
+using _24Hour.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
 
 namespace _24Hour.Services
 {
@@ -17,7 +19,6 @@ namespace _24Hour.Services
         {
             _userId = userId;
         }
-
         public bool CreateReply(ReplyCreate reply)
         {
             var entity = new Data.Reply()
@@ -28,14 +29,12 @@ namespace _24Hour.Services
                 CommentId = reply.CommentId
 
             };
-
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Replies.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public IEnumerable<ReplyListAll> GetReply()
         {
             using (var ctx = new ApplicationDbContext())
@@ -56,7 +55,6 @@ namespace _24Hour.Services
                 return query.ToArray();
             }
         }
-
         public ReplyDetail GetReplyById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -74,11 +72,5 @@ namespace _24Hour.Services
                      };
             }
         }
-
-
-
-
-
-
     }
 }
