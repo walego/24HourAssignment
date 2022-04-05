@@ -42,11 +42,11 @@ namespace _24HourAPI.Controllers
             return Ok(posts);
         }
         //Get By AuthorId
-        public IHttpActionResult GetById()
+        public IHttpActionResult GetById(int id)
         {
             PostService service = CreatePostService();
             var post = service.GetPostById(id);
-            return (post);
+            return Ok(post);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace _24Hour.Services
             }
         }
 
-        public PostDetail GetNoteById(int id)
+        public PostDetail GetPostById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -61,7 +61,6 @@ namespace _24Hour.Services
                         Title = entity.Title,
                         Text = entity.Text
                     };
-
             }
         }
     }
