@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Models
 {
-    public class CommentEdit
+    public class ReplyListAll
     {
-        public int CommentId { get; set; }
+        public int ReplyId { get; set; }
+
         public string Text { get; set; }
-        public string Content { get; set; }
+
+        public int CommentId { get; set; }
+
+
     }
-
 }
-
-}
-
