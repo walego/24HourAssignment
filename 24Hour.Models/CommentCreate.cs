@@ -11,9 +11,17 @@ namespace _24Hour.Models
     {
         [Required]
         [MinLength(2, ErrorMessage = "Please Enter At Least Two Characters.")]
+
+        [MaxLength(100, ErrorMessage = "Too Many Characters!")]
+
         [MaxLength(100, ErrorMessage ="Too Many Characters!")]
+
         public string Text { get; set; }
         [MaxLength(8000)]
         public Guid AuthorId { get; set; }
     }
+
 }
+
+}
+
